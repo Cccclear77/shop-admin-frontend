@@ -20,6 +20,8 @@ import GoodsList from "./pages/goods/GoodsList";
 import GoodsAdd from "./pages/goods/GoodsAdd"
 import CategoryList from "./pages/category/CategoryList";
 
+import VueQuillEditor from 'vue-quill-editor'
+
 
 // element-ui 3.注册插件
 Vue.use(ElementUI);

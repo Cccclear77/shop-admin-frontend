@@ -32,7 +32,13 @@
             console.log(this.ruleForm2);
             
             // 提交数据
-            // this.$axios()
+
+            this.$axios({
+              method:"POST",
+              dataa:this.formData
+            }).then(res=>{
+              console.log(res)
+            })
 
       },
       resetForm(formName) {
