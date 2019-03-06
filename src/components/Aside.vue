@@ -86,7 +86,7 @@ export default {
   props:['isCollapse']
 };
 </script>
-<style>
+<style scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;

@@ -14,7 +14,8 @@
        <app-header @onChange='changeCollapse'></app-header>
       </el-header>
       <!-- 主体 -->
-      <el-main> 
+      <el-main>
+        <breadcrumb ></breadcrumb>
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -24,7 +25,8 @@
 
 <script>
 import Aside from  "../components/Aside";
-import Header from '../components/Header.vue';
+import Header from '../components/Header';
+import Breadcrumb from "../components/Breadcrumb"
 export default {
   name:'admin-index',
   data() {
@@ -35,7 +37,9 @@ export default {
   components:{
     // 主键名称不能跟标签名同步
     "app-aside":Aside,
-    "app-header":Header
+    "app-header":Header,
+    "breadcrumb":Breadcrumb
+  
   },
   methods:{
     // 修改菜单的展缩
@@ -65,9 +69,9 @@ export default {
 
 .el-main {
   background-color: #e9eef3;
-  color: #333;
+     /* color: #333;
   text-align: center;
-  line-height: 160px;
+  line-height: 160px; */
 }
 
 .el-container {

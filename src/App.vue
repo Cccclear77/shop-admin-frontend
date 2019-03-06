@@ -14,4 +14,10 @@ export default {
   margin: 0;
   padding: 0;
 }
+.mt20{
+  margin-top: 20px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
 </style>

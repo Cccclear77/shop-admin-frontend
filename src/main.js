@@ -16,8 +16,9 @@ Vue.use(VueRouter);
 //导入组件
 import Login from './pages/Login';
 import Admin from './pages/Admin';
-import GoodsList from "./pages/goods/GoodsList"
-import CategoryList from "./pages/category/CategoryList"
+import GoodsList from "./pages/goods/GoodsList";
+import GoodsAdd from "./pages/goods/GoodsAdd"
+import CategoryList from "./pages/category/CategoryList";
 
 
 // element-ui 3.注册插件
@@ -40,12 +41,17 @@ const routes = [
   {
     path: '/admin',
     component: Admin,
-    meta: '首页',
+    meta: '管理后台',
     redirect: '/admin/goods-list',
     children: [{
         path: 'goods-list',
         component: GoodsList,
         meta: '商品列表'
+    },
+      {
+        path: "goods-add",
+        component: GoodsAdd,
+        meta:"添加商品"
       },
       {
         path: 'category-list',
@@ -64,7 +70,8 @@ const router = new VueRouter({
 Vue.prototype.$axios = axios;
 
 new Vue({
+  router,
   render: h => h(App),
   //挂载到跟实例
-  router
+  
 }).$mount('#app')
