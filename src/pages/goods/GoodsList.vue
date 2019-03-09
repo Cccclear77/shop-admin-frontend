@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" justify="space-between" align="middle">
       <div>
-        <el-button to="../goods/GoodsAdd.vue">新增</el-button>
+        <el-button @click="handgoodsadd">新增</el-button>
         <el-button>删除</el-button>
       </div>
       <div>
@@ -12,6 +12,11 @@
       </div>
     </el-row>
     <el-table :data="tableData" style="width: 100%" class="mt20">
+      
+      <el-table-column
+      type="selection"
+      width="55" @selection-change="handleSelectionChange">
+    </el-table-column>
       <el-table-column label="标题" width="180" prop="title"></el-table-column>
       <el-table-column label="类型" width="180" prop="categoryname"></el-table-column>
       <el-table-column label="价格" width="180">
@@ -34,7 +39,7 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="pageIndex"
-        :page-sizes="[5, 10, 15, 20]"
+        :page-sizes="[pageSize, 10, 15, 20]"
         :page-size="5"
         layout="total, sizes, prev, pager, next, jumper"
         :total="totalCount"
@@ -75,6 +80,7 @@ export default {
   methods: {
     handleEdit(index, row) {
       console.log(index, row);
+      this.$router.push("/admin/goods-edit")
     },
     handleDelete(index, row) {
       console.log(index, row);
@@ -86,8 +92,17 @@ export default {
     // 切换页数时触发
     handleCurrentChange(num) {
       console.log(num);
-    }
+    },
+    // 跳转到新增页面
+     handgoodsadd(){
+    this.$router.push("/admin/goods-add")
   },
+  // 当表格选择时触发
+     handleSelectionChange(){
+       console.log(data)
+     }
+  },
+ 
   //   过滤器
   filters: {
     tofixed: function(data) {

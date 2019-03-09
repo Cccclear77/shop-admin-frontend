@@ -10,6 +10,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //引入vue-router
 import VueRouter from 'vue-router';
+
+import store from "store"
 //注册插件
 Vue.use(VueRouter);
 
@@ -17,10 +19,11 @@ Vue.use(VueRouter);
 import Login from './pages/Login';
 import Admin from './pages/Admin';
 import GoodsList from "./pages/goods/GoodsList";
-import GoodsAdd from "./pages/goods/GoodsAdd"
+import GoodsAdd from "./pages/goods/GoodsAdd";
+import GoodsEdit from "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
 
-import VueQuillEditor from 'vue-quill-editor'
+
 
 
 // element-ui 3.注册插件
@@ -56,6 +59,11 @@ const routes = [
         meta:"添加商品"
       },
       {
+        path: "goods-edit",
+        component: GoodsEdit,
+        meta: "编辑商品"
+      },
+      {
         path: 'category-list',
         component: CategoryList,
         meta: '栏目列表'
@@ -67,12 +75,13 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
+// axito.defaults.baseURL="http://localhost:8899"
 //给vue构造函数的原型链添加$axios
 Vue.prototype.$axios = axios;
 
 new Vue({
   router,
+  store,
   render: h => h(App),
   //挂载到跟实例
   
